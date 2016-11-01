@@ -25,10 +25,15 @@ public class MainActivity extends AppCompatActivity
     private static final int EDITOR_REQUEST_CODE = 1001;
     private CursorAdapter cursorAdapter;
 
+    SessionManagement session;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        session = new SessionManagement(getApplicationContext());
+        session.checkNoteTakingSession();
 
         cursorAdapter = new NotesCursorAdapter(this, null, 0);
 
@@ -71,6 +76,9 @@ public class MainActivity extends AppCompatActivity
                 break;
             case R.id.action_delete_all:
                 deleteAllNotes();
+                break;
+            case R.id.action_exit:
+                session.finishNoteTakingSession();
                 break;
         }
 

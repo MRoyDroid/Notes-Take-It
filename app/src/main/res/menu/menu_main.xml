@@ -12,4 +12,9 @@
         android:orderInCategory="101"
         android:title="@string/delete_all_notes"
         app:showAsAction="never" />
+    <item
+        android:id="@+id/action_exit"
+        android:orderInCategory="102"
+        android:title="Exit"
+        app:showAsAction="never" />
 </menu>
